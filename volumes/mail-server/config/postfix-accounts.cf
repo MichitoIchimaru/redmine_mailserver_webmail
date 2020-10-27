@@ -1,0 +1,14 @@
+redmine@example.net|{PLAIN}password
+admin@example.net|{PLAIN}password
+redmine@example.com|{PLAIN}password
+sentinel@example.com|{PLAIN}password
+test01@example.com|{PLAIN}password
+test02@example.com|{PLAIN}password
+test03@example.com|{PLAIN}password
+test04@example.com|{PLAIN}password
+test05@example.com|{PLAIN}password
+test06@example.com|{PLAIN}password
+test07@example.com|{PLAIN}password
+test08@example.com|{PLAIN}password
+test09@example.com|{PLAIN}password
+test10@example.com|{PLAIN}password

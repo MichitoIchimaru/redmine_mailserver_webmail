@@ -1,0 +1,66 @@
+version: "3"
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.30.0.0/24
+
+services:
+  redmine:
+    image: redmine:4.1.1
+    container_name: redmine
+    volumes:
+      - "./volumes/redmine/files:/usr/src/redmine/files"
+      - "./volumes/redmine/plugins:/usr/src/redmine/plugins"
+      - "./volumes/redmine/config/configuration.yml:/usr/src/redmine/config/configuration.yml"
+      - "./volumes/redmine/public/themes:/usr/src/redmine/public/themes"
+      - "./volumes/redmine/sqlite:/usr/src/redmine/sqlite"
+    ports:
+      - 3000:3000
+    environment:
+      - TZ=Asia/Tokyo
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.2
+
+  mail-server:
+    image: tvial/docker-mailserver:latest
+    container_name: mail-server
+    hostname: mail
+    domainname: example.com
+    ports:
+      - "25"
+      - "110"
+      - "143"
+    volumes:
+      - ./volumes/mail-server/config/:/tmp/docker-mailserver/
+    environment:
+      # debug したい場合には以下の行のコメントアウトを解除する
+      # - DMS_DEBUG=1
+      - ENABLE_SPAMASSASSIN=0
+      - ENABLE_CLAMAV=0
+      - ENABLE_FETCHMAIL=0
+      - ENABLE_FAIL2BAN=0
+      - ENABLE_POSTGREY=0
+      - ENABLE_POP3=1
+    cap_add:
+      - NET_ADMIN
+      - SYS_PTRACE
+    restart: always
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.3
+
+  rainloop:
+    image: hardware/rainloop
+    container_name: rainloop
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./volumes/rainloop/data/:/rainloop/data
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.4
