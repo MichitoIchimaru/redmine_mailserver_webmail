@@ -25,14 +25,14 @@ http://[docker起動ホスト]:8888/?admin
 <img width="600" src="img/img01.png">
 
 #### 2. 日本語化
-言語を日本語化する
+言語を日本語化する  
 <img width="600" src="img/img02.png">
 
 #### 3. ドメイン登録
-ドメインメニューより、既存の設定を全て削除する。
+ドメインメニューより、既存の設定を全て削除する。  
 <img width="600" src="img/img03.png">
 
-「ドメインを追加」ボタンより、ドメインを追加する。
+「ドメインを追加」ボタンより、ドメインを追加する。  
 <img width="600" src="img/img04.png">
 
 | パラメタ | ドメイン1 | ドメイン2 |
@@ -44,7 +44,7 @@ http://[docker起動ホスト]:8888/?admin
 | SMTPポート | 25 | 25 |
 
 #### 4. WebMailログイン確認
-下記URLにアクセスする。
+下記URLにアクセスする。  
 mail-serverのpostfix-accounts.cfに定義したアカウントでログインできることを確認する。
 
 ```
@@ -73,11 +73,11 @@ docker exec redmine bundle exec rake redmine:email:receive_imap RAILS_ENV="produ
 ### 参考
 参考にしたのは以下
 
-Jaybanuan's Blog "RedmineをDocker Composeで構築"
+Jaybanuan's Blog "RedmineをDocker Composeで構築"  
 https://redj.hatenablog.com/entry/2020/02/19/081344
 
-かんがるーさんの日記 "( その２５ )"
+かんがるーさんの日記 "( その２５ )"  
 https://ksby.hatenablog.com/entry/2018/08/28/021140
 
-かんがるーさんの日記 "( その２８ )"
+かんがるーさんの日記 "( その２８ )"  
 https://ksby.hatenablog.com/entry/2019/01/05/225907
