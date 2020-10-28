@@ -5,4 +5,7 @@ default:
       address: 172.30.0.3
       port: 25
       enable_starttls_auto: false
-      domain: example.com
+      authentication: :login
+      domain: example.net
+      user_name: redmine@example.net
+      password: password
