@@ -1,4 +1,6 @@
 ## Redmine + MailServer(SMTP/POP3/IMAP) + WebMailClient
+Redmineの動作確認用のdocker-composeです。  
+実運用では利用しないでください。
 
 ### 起動
 下記コマンドにてdockerを起動
