@@ -1,13 +1,5 @@
 version: "3"
 
-networks:
-  app_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.30.0.0/24
-
 services:
   redmine:
     image: redmine:4.1.1
@@ -22,9 +14,6 @@ services:
       - 3000:3000
     environment:
       - TZ=Asia/Tokyo
-    networks:
-      app_net:
-        ipv4_address: 172.30.0.2
 
   mail-server:
     image: tvial/docker-mailserver:latest
@@ -50,9 +39,6 @@ services:
       - NET_ADMIN
       - SYS_PTRACE
     restart: always
-    networks:
-      app_net:
-        ipv4_address: 172.30.0.3
 
   rainloop:
     image: hardware/rainloop
@@ -61,6 +47,3 @@ services:
       - "8888:8888"
     volumes:
       - ./volumes/rainloop/data/:/rainloop/data
-    networks:
-      app_net:
-        ipv4_address: 172.30.0.4
